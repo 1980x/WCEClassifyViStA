@@ -77,44 +77,36 @@ are quite accurate.
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   S.No.   Image Name      Groundtruth image with ground truth bbox                                                               Predicted segmentation mask for explainability
   ------- --------------- ------------------------------------------------------------------------------------------------------ ------------------------------------------------------------------------------------------------------
-  1       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
-          (276).png       (276).png](Images/image2.png){width="1.5833333333333333in"    (276).png](Images/image22.png){width="1.582638888888889in"
+  1       bleeding/img-(276).png   ![](Images/image2.png){width="1.5833333333333333in"    ](Images/image22.png){width="1.582638888888889in"
                           height="1.5833333333333333in"}                                                                         height="1.582638888888889in"}
 
-  2       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
-          (320).png       (320).png](Images/image4.png){width="1.582638888888889in"     (320).png](Images/image23.png){width="1.582638888888889in"
+  2       bleeding/img-(320).png   ![](Images/image4.png){width="1.582638888888889in"    ](Images/image23.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
 
-  3       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
-          (473).png       (473).png](Images/image6.png){width="1.582638888888889in"     (473).png](Images/image24.png){width="1.582638888888889in"
+  3       bleeding/img-   ![](Images/image6.png){width="1.582638888888889in"     (473).png](Images/image24.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
 
-  4       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
-          (581).png       (581).png](Images/image8.png){width="1.582638888888889in"     (581).png](Images/image25.png){width="1.582638888888889in"
+  4       bleeding/img-   ![](Images/image8.png){width="1.582638888888889in"     (581).png](Images/image25.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
 
   5       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
           (654).png       (654).png](Images/image10.png){width="1.582638888888889in"    (654).png](Images/image26.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
 
-  6       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
-          (697).png       (697).png](Images/image12.png){width="1.582638888888889in"    (697).png](Images/image27.png){width="1.582638888888889in"
+  6       bleeding/img-   ![](Images/image12.png){width="1.582638888888889in"    (697).png](Images/image27.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
 
-  7       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
-          (775).png       (775).png](Images/image14.png){width="1.582638888888889in"    (775).png](Images/image28.png){width="1.582638888888889in"
+  7       bleeding/img-   ![](Images/image14.png){width="1.582638888888889in"    (775).png](Images/image28.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
 
-  8       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
-          (894).png       (894).png](Images/image16.png){width="1.582638888888889in"    (894).png](Images/image29.png){width="1.582638888888889in"
+  8       bleeding/img-   ![](Images/image16.png){width="1.582638888888889in"    (894).png](Images/image29.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
 
   9       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
           (968).png       (968).png](Images/image18.png){width="1.582638888888889in"    (968).png](Images/image30.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
 
-  10      bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
-          (1120).png      (1120).png](Images/image20.png){width="1.582638888888889in"   (1120).png](Images/image31.png){width="1.582638888888889in"
+  10      bleeding/img-   ![](Images/image20.png){width="1.582638888888889in"   (1120).png](Images/image31.png){width="1.582638888888889in"
                           height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
