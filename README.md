@@ -47,7 +47,7 @@ While there are many images from the validation set with high confidence and hig
 
 |S.No.|Image Name|Groundtruth image with ground truth bbox|Predicted bbox with confidence|Classification + Confidence|
 | :- | :- | :- | :- | :- |
-|1|bleeding/img- (276).png|![](Images/image2.png)|![](Images/image3.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+|1|bleeding/img- (276).png|![](Images/image2.png){width="1.58in"height="1.58in"}|![](Images/image3.png){width="1.58in"height="1.58in"}|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
 |2|bleeding/img- (320).png|![](Images/image4.png)|![](Images/image5.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
 |3|bleeding/img- (473).png|![](Images/image6.png)|![](Images/image7.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
 |4|bleeding/img- (581).png|![](Images/image8.png)|![](Images/image9.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9998</p>|
@@ -66,7 +66,7 @@ comparison. For sake of consistency, we are choosing the same 10 images that was
 
 |S.No.|Image Name|Groundtruth image with ground truth bbox|Predicted segmentation mask for explainability |
 | :- | :- | :- | :- |
-|1|bleeding/img- (276).png|![](Images/image2.png){width="1.58in"height="1.58in"}     |![](Images/image22.png)|
+|1|bleeding/img- (276).png|![](Images/image2.png)|![](Images/image22.png)|
 |2|bleeding/img- (320).png|![](Images/image4.png)|![](Images/image23.png)|
 |3|bleeding/img- (473).png|![](Images/image6.png)|![](Images/image24.png)|
 |4|bleeding/img- (581).png|![](Images/image8.png)|![](Images/image25.png)|
