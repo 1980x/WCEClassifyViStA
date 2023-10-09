@@ -23,7 +23,7 @@ For WCE bleeding region detection, we have used YOLOV8. However, instead of usin
 
 Train-valid split was obtained using *sklearn.model\_selection.train\_test\_split* with *random\_state* argument set to 42 for reproducibility.
 
-**Table 1: Classification Performance on Validation Set
+**Table 1: Classification Performance on Validation Set**
 
 |**S.No.**|**Metric**|**Value**|
 | :- | :- | :- |
@@ -32,7 +32,7 @@ Train-valid split was obtained using *sklearn.model\_selection.train\_test\_spli
 |3|Recall|0\.9962|
 |4|F1-Score|0\.9962|
 
-**Table 2: Detection Performance on Validation Set
+**Table 2: Detection Performance on Validation Set**
 
 |**S.No.**|**Metric**|**Value**|
 | :- | :- | :- |
