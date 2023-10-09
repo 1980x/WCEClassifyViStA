@@ -54,7 +54,7 @@ comparison. For sake of consistency, we are choosing the same 10 images that was
 
 |S.No.|Image Name|Groundtruth image with ground truth bbox|Predicted segmentation mask for explainability |
 | :- | :- | :- | :- |
-|1|bleeding/img- (276).png|![](Images/image2.png){width="1.58in"height="1.58in"}|![](Images/image22.png){width="1.58in"height="1.58in"}|
+|1|bleeding/img- (276).png|![](Images/image2.png)|![](Images/image22.png)|
 |2|bleeding/img- (320).png|<p></p><p>  </p><p></p>|<p></p><p>  </p><p></p>|
 |3|bleeding/img- (473).png|<p></p><p>  </p><p></p>|<p></p><p>  </p><p></p>|
 |4|bleeding/img- (581).png|<p></p><p>  </p><p></p>|<p></p><p>  </p>|
@@ -63,7 +63,7 @@ comparison. For sake of consistency, we are choosing the same 10 images that was
 |7|bleeding/img- (775).png|<p></p><p>  </p><p></p><p></p>|<p></p><p>  </p><p></p>|
 |8|bleeding/img- (894).png|<p></p><p>  </p>|<p></p><p>  </p><p></p>|
 |9|bleeding/img- (968).png|<p></p><p>  </p><p></p>|<p></p><p>  </p>|
-|10|bleeding/img- (1120).png|<p></p><p>  </p><p></p>|<p></p><p>  </p>|
+|10|bleeding/img- (1120).png|<p></p><p>  </p><p></p>|<p></p><p>  </p>{width="1.58in"height="1.58in"}|
 
 
 
