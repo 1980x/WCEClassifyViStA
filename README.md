@@ -42,20 +42,81 @@ Table 2: Detection Performance on Validation Set
 |3|MAP@0.5-0.95|0\.483|
 |4|Average IoU|0\.6405|
 
-**Table 3: Pictures of any 10 best images selected from the validation dataset showing its classification and detection**
+**Table 3: Pictures of any 10 best images selected from the validation
+dataset showing its classification and detection**
 
-While there are many images from the validation set with high confidence and high IoU detection, we have chosen 10 images varying in illumination, region (inside the body), texture etc. and that which covers bounding boxes with small, large and medium areas that overlap significantly with the corresponding groundtruth. The groundtruth detection is also shown in the table below for easy comparison.
+While there are many images from the validation set with high confidence
+and high IoU detection, we have chosen 10 images varying in
+illumination, region (inside the body), texture etc. and that which
+covers bounding boxes with small, large and medium areas that overlap
+significantly with the corresponding groundtruth. The groundtruth
+detection is also shown in the table below for easy comparison.
 
-|S.No.|Image Name|Groundtruth image with ground truth bbox|Predicted bbox with confidence|Classification + Confidence|
-| :- | :- | :- | :- | :- |
-|1|bleeding/img- (276).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (276).png]</p><p></p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (276).png](Images/Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.003.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
-|2|bleeding/img- (320).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (320).png]</p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (320).png](Aspose.Words.c8aee428-Images/0d98-4d6a-b174-1bab7a6ef67e.005.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
-|3|bleeding/img- (473).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (473).png]</p><p></p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (473).png](Images/Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.007.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
-|4|bleeding/img- (581).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (581).png]</p><p></p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (581).png](Images/Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.009.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9998</p>|
-|5|bleeding/img- (654).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (654).png]</p><p></p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (654).png](Images/Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.011.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9998</p>|
-|6|bleeding/img- (697).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (697).png]</p><p></p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (697).png](Images/Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.013.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9994</p>|
-|7|bleeding/img- (775).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (775).png]</p><p></p><p></p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (775).png](Images/Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.015.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9982</p>|
-|8|bleeding/img- (894).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (894).png]</p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (894).png](Images/Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.017.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9997</p>|
-|9|bleeding/img- (968).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (968).png]</p><p></p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (968).png](Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.019.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9994</p>|
-|10|bleeding/img- (1120).png|<p></p><p>![C:\Users\bala\Downloads\outputs\img- (1120).png]</p>|<p></p><p>![C:\Users\bala\Downloads\images\img- (1120).png](Images/Aspose.Words.c8aee428-0d98-4d6a-b174-1bab7a6ef67e.021.png)</p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+*Table 4: Pictures of the achieved interpretability plot of any 10 best
+images selected from the validation dataset**
+
+Our team intends to explain the classification using the predicted
+segmentation mask. In fact, a doctor would classify a WCE image as
+bleeding by looking for bleeding spots in the image. So, enabling the
+machine to attempt to mimic what doctor does is, we believe, the more
+natural way of explaining the reason for classification. Towards this
+end, we had added a parallel branch to the classifier network which
+decodes the features from the classifier backbone (in the style of U-net
+decoder) and predicts a segmentation mask. Below, we show the predicted
+segmentation masks where the brighter corresponds to area where possible
+bleeding is present in the original WCE image. The corresponding
+groundtruth image with the inlaid bounding box is shown for easy
+comparison. For sake of consistency, we are choosing the same 10 images
+that was chosen for the above table (Table 3), even though there are
+many other images for which the segmentation mask is more accurate
+(segmentation mask for all the 263 positive class validation images is
+provided in the results folder here). Even for the chosen 10 images,
+except for a couple of images, the masks that explain the classification
+are quite accurate.
+
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  S.No.   Image Name      Groundtruth image with ground truth bbox                                                               Predicted segmentation mask for explainability
+  ------- --------------- ------------------------------------------------------------------------------------------------------ ------------------------------------------------------------------------------------------------------
+  1       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (276).png       (276).png](Images/image2.png){width="1.5833333333333333in"    (276).png](Images/image22.png){width="1.582638888888889in"
+                          height="1.5833333333333333in"}                                                                         height="1.582638888888889in"}
+
+  2       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (320).png       (320).png](Images/image4.png){width="1.582638888888889in"     (320).png](Images/image23.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+
+  3       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (473).png       (473).png](Images/image6.png){width="1.582638888888889in"     (473).png](Images/image24.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+
+  4       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (581).png       (581).png](Images/image8.png){width="1.582638888888889in"     (581).png](Images/image25.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+
+  5       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (654).png       (654).png](Images/image10.png){width="1.582638888888889in"    (654).png](Images/image26.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+
+  6       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (697).png       (697).png](Images/image12.png){width="1.582638888888889in"    (697).png](Images/image27.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+
+  7       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (775).png       (775).png](Images/image14.png){width="1.582638888888889in"    (775).png](Images/image28.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+
+  8       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (894).png       (894).png](Images/image16.png){width="1.582638888888889in"    (894).png](Images/image29.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+
+  9       bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (968).png       (968).png](Images/image18.png){width="1.582638888888889in"    (968).png](Images/image30.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+
+  10      bleeding/img-   ![C:\\Users\\bala\\Downloads\\outputs\\img-                                                            ![C:\\Users\\bala\\Downloads\\inverted_seg_inferences\\img-
+          (1120).png      (1120).png](Images/image20.png){width="1.582638888888889in"   (1120).png](Images/image31.png){width="1.582638888888889in"
+                          height="1.582638888888889in"}                                                                          height="1.582638888888889in"}
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
