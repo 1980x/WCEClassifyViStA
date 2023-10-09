@@ -1,7 +1,7 @@
 # WCEClassifyViStA
 WCE Classification with Visual Understanding through Segmentation and Attention
 
-Our WCE image classification network is named as “**WCE ClassifyViStA (WCE Classification with Visual understanding through Segmentation and Attention)**”. A block schematic of ClassifyViStAis shown below. It has a standard classification path and two other branches viz. implicit attention branch and the segmentation branch. 
+Our WCE image classification network is named as “**WCE ClassifyViStA (WCE Classification with Visual understanding through Segmentation and Attention)**”. A block schematic of ClassifyViStA is shown below. It has a standard classification path and two other branches viz. implicit attention branch and the segmentation branch. 
 
 ![](Images/image1.png)
 
@@ -13,11 +13,11 @@ Both these branches supplement the standard path of classification implicitly wi
 
 While inferencing, attention branch is not used since segmentation masks will not be available during inference. Class predictions are obtained using the standard classification path and explanations are derived from the predicted segmentation masks. Like doctors look for bleeding spots to classify a WCE image into bleeding class, the predicted segmentation masks identify bleeding regions with bright pixels and non-bleeding regions with dark pixels, attempting to mimic what the doctor does. This is the most natural way of explaining the class prediction for a WCE image. So, we have come with our own explainabilty for explaining the class predictions instead of relying on LIME, SHAP etc. 
 
-To improve classification performance, we have used an ensemble of two tow models in our Classify ViStA viz. Resnet18 and VGG16. The final classification is based average prediction probabilities from both the models.
+To improve classification performance, we have used an ensemble of two models in our ClassifyViStA viz. Resnet18 and VGG16. The final classification is based average prediction probabilities from both the models.
 
 **Detection Network (SoftNMS activated YOLOV8)**
 
-For WCE bleeding region detection, we have used YOLOV8. However, instead of using YOLOV8 as it, we activated soft non-max suppression during during inferencing (Soft NMS) instead of standard NMS which provides a softer and more nuanced handling of overlapping boxes, reducing the risk of removing partially correct boxes. We found soft NMS to do better than standard NMS in our validation set. 
+For WCE bleeding region detection, we have used YOLOV8. However, instead of using YOLOV8 as it is, we activated soft non-max suppression (Soft NMS) during inferencing  instead of standard NMS, which provides a softer and more nuanced handling of overlapping boxes, reducing the risk of removing partially correct boxes. We found soft NMS to do better than standard NMS in our validation set. 
 
 ## Data Organization
 Data should be organized as follows for training the classifier:
@@ -28,7 +28,7 @@ Data should be organized as follows for training the classifier:
 ### Classification
 To train the classification model, execute:
 
-	python WCE_classification.py --root_dir path-to-directory-where-datasets-folder-is-present/WCEBleedGen -batch_size 32 --epochs 100 --save_dir path-to-directory-to-save-the-trained-model
+	python WCE_classification.py --root_dir path-to-directory-where-datasets-folder-is-present/WCEBleedGen --batch_size 32 --epochs 100 --save_dir path-to-directory-to-save-the-trained-model
  
 To infer from the trained classification model, execute:
 
@@ -36,7 +36,7 @@ To infer from the trained classification model, execute:
  
 Note: 
 # (i) 
-We have placed our pretrained model named _ClassifyViStA_model.pt_ in 
+We have placed our pretrained model named _ClassifyViStA_model.pt_ in ..............
           
 # (ii)
 For predicting classes for Test Dataset 1, we first removed the superimposed white boundary on the images using connected component analysis, morphological post processing and inpainting. These preprocessed images are considered for classification. The tabulated classification results below on test dataset 1 is based on this preprocessing. The code to do this preprocessing is available in _utils_ folder as _rm_bndry.py_. Inside the code, correctly set the source and the target directories, in case you want to use it.
@@ -48,13 +48,13 @@ https://github.com/ultralytics/ultralytics
 
 For inference, you can execute:
 
-	python detect_bleeding.py --source path-to-directory-of-test-images --device device-number-if-gpu
+	python detect_bleeding.py --source path-to-directory-of-test-images --device device-number-if-gpu-available
  
 Note: 
 # (i) 
-By default, the code will run on cpu. Si, if no gpu is available, no need to specify any device. The results (both, images with bounding boxes superimposed and the bounding boxes, are created in _./results/images_ and _./results/labels_, respectively).
+By default, the code will run on cpu. So, if no gpu is available, no need to specify any device. The results (both, images with bounding boxes superimposed on it and the bounding boxes, are created in _./results/images_ and _./results/labels_, respectively).
 # (ii)
-Inside the _detect_bleeding.py_, opt.model is to the pretrained yolov8 medium model (available as _detect_best.pt_) on the WCE bleeding trainset. If you want to provide another yolov8 medium model, you have to change this line in the code.
+Inside the _detect_bleeding.py_, opt.model is to the pretrained yolov8 medium model (available as _detect_best.pt_ in .........) on the WCE bleeding trainset. If you want to provide another yolov8 medium model, you have to change this line in the code.
 # (iii) 
 As already mentioned, we activated the soft nms, also called merged nms in the yolov8. By default, it is not activated. To activate, set _merge_ to _True_ in line 191 in _./ultralytics/yolo/utils/ops.py_.
 
@@ -83,7 +83,7 @@ Train-valid split was obtained using
 
 **Table 3: Pictures of any 10 best images selected from the validation dataset showing its classification and detection**
 
-While there are many images from the validation set with high confidence and high IoU detection, we have chosen 10 images varying in illumination, region (inside the body), texture etc. and that which covers bounding boxes with small, large and medium areas that overlap significantly with the corresponding groundtruth. The groundtruth detection is also shown in the table below for easy comparison.
+While there are many images from the validation set with high confidence and high IoU detection, we have chosen 10 images varying in illumination, region (inside the stomach), texture etc. and that which covers bounding boxes with small, large and medium areas that overlap significantly with the corresponding groundtruth. The groundtruth detection is also shown in the table below for easy comparison.
 
 |S.No.|Image Name|Groundtruth image with ground truth bbox|Predicted bbox with confidence|Classification + Confidence|
 | :- | :- | :- | :- | :- |
@@ -102,7 +102,7 @@ While there are many images from the validation set with high confidence and hig
 
 Our team intends to explain the classification using the predicted segmentation mask. In fact, a doctor would classify a WCE image as bleeding by looking for bleeding spots in the image. So, enabling the machine to attempt to mimic what doctor does is, we believe, the more natural way of explaining the reason for classification. Towards this end, we had added a parallel branch to the classifier network which decodes the features from the classifier backbone (in the style of U-net decoder) and predicts a segmentation mask. Below, we show the predicted segmentation masks where the brighter corresponds to area where possible
 bleeding is present in the original WCE image. The corresponding groundtruth image with the inlaid bounding box is shown for easy
-comparison. For sake of consistency, we are choosing the same 10 images that was chosen for the above table (Table 3), even though there are many other images for which the segmentation mask is more accurate (segmentation mask for all the 263 positive class validation images is provided in the results folder here). Even for the chosen 10 images, except for a couple of images, the masks that explain the classification are quite accurate.
+comparison. For sake of consistency, we are choosing the same 10 images that was chosen for the above table (Table 3), even though there are many other images for which the segmentation mask is more accurate (segmentation mask for all the 263 positive class validation images can be generated using the steps mentioned above for inferring from the classification model). Even for the chosen 10 images, except for a couple of images, the masks that explain the classification are quite accurate.
 
 |S.No.|Image Name|Groundtruth image with ground truth bbox|Predicted segmentation mask for explainability |
 | :- | :- | :- | :- |
@@ -126,11 +126,6 @@ comparison. For sake of consistency, we are choosing the same 10 images that was
 |3|A0038|![](Images/image34.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
 |4|A0042|![](Images/image35.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9997</p>|
 |5|A0046|![](Images/image36.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9483</p>|
-
-
-
-
-
 
 
 **Table 6: Pictures of any 5 best images selected from the test dataset 2 showing its classification and detection**
@@ -163,6 +158,11 @@ comparison. For sake of consistency, we are choosing the same 10 images that was
 |4|A0467|![](Images/image59.png)|![](Images/image58.png)|
 |5|A0497|![](Images/image61.png)|![](Images/image60.png)|
 
+# Observations:
+## 1.
+Towards the end, we realized that for different validation sets, different accuracies (some much better than what we are quoting here are obtained). We had fixed _random_state_ to _42_ right from the beginning for reproducability and we did not want to change at the last minute. It would have been better if a fixed/hold-out validation set was provided.
+## 2.
+It would have been better if the test dataset 1 images had been provided without the superimposed boundary. The boundary could have been provided in the form of segmentation masks separately. We had to preprocess the test dataset 1 to get good performance.
 
 
 
