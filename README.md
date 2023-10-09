@@ -1,4 +1,4 @@
-# WCEClassifyViStA-
+# WCEClassifyViStA
 WCE Classification with Visual Understanding through Segmentation and Attention
 
 Our WCE image classification network is named as “**WCE ClassifyViStA (WCE Classification with Visual understanding through Segmentation and Attention)**”. A block schematic of ClassifyViStAis shown below. It has a standard classification path and two other branches viz. implicit attention branch and the segmentation branch. 
@@ -66,7 +66,7 @@ comparison. For sake of consistency, we are choosing the same 10 images that was
 
 |S.No.|Image Name|Groundtruth image with ground truth bbox|Predicted segmentation mask for explainability |
 | :- | :- | :- | :- |
-|1|bleeding/img- (276).png|![](Images/image2.png)|![](Images/image22.png)|
+|1|bleeding/img- (276).png|![](Images/image2.png){width="1.58in"height="1.58in"}     |![](Images/image22.png)|
 |2|bleeding/img- (320).png|![](Images/image4.png)|![](Images/image23.png)|
 |3|bleeding/img- (473).png|![](Images/image6.png)|![](Images/image24.png)|
 |4|bleeding/img- (581).png|![](Images/image8.png)|![](Images/image25.png)|
