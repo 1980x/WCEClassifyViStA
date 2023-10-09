@@ -36,7 +36,7 @@ To infer from the trained classification model, execute:
  
 Note: 
 # (i) 
-We have placed our pretrained model named _ClassifyViStA_model.pt_ in ..............
+We have placed our pretrained model named _ClassifyViStA_model.pt_ [here](https://drive.google.com/drive/folders/1AQCBOBU11VoL8XtS_wg5VowsyB6h6c7y?usp=drive_link)
           
 # (ii)
 For predicting classes for Test Dataset 1, we first removed the superimposed white boundary on the images using connected component analysis, morphological post processing and inpainting. These preprocessed images are considered for classification. The tabulated classification results below on test dataset 1 is based on this preprocessing. The code to do this preprocessing is available in _utils_ folder as _rm_bndry.py_. Inside the code, correctly set the source and the target directories, in case you want to use it.
@@ -54,7 +54,7 @@ Note:
 # (i) 
 By default, the code will run on cpu. So, if no gpu is available, no need to specify any device. The results (both, images with bounding boxes superimposed on it and the bounding boxes, are created in _./results/images_ and _./results/labels_, respectively).
 # (ii)
-Inside the _detect_bleeding.py_, opt.model is to the pretrained yolov8 medium model (available as _detect_best.pt_ in .........) on the WCE bleeding trainset. If you want to provide another yolov8 medium model, you have to change this line in the code.
+Inside the _detect_bleeding.py_, opt.model is to the pretrained yolov8 medium model (available as _detect_best.pt_  [here](https://drive.google.com/drive/folders/1AQCBOBU11VoL8XtS_wg5VowsyB6h6c7y?usp=drive_link)) on the WCE bleeding trainset. If you want to provide another yolov8 medium model, you have to change this line in the code.
 # (iii) 
 As already mentioned, we activated the soft nms, also called merged nms in the yolov8. By default, it is not activated. To activate, set _merge_ to _True_ in line 191 in _./ultralytics/yolo/utils/ops.py_.
 
