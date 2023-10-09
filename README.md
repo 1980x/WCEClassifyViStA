@@ -19,9 +19,49 @@ To improve classification performance, we have used an ensemble of two tow model
 
 For WCE bleeding region detection, we have used YOLOV8. However, instead of using YOLOV8 as it, we activated soft non-max suppression during during inferencing (Soft NMS) instead of standard NMS which provides a softer and more nuanced handling of overlapping boxes, reducing the risk of removing partially correct boxes. We found soft NMS to do better than standard NMS in our validation set. 
 
+## Data Organization
+Data should be organized as follows for training the classifier:
+
+![Capture](https://github.com/1980x/WCEClassifyViStA/assets/68511550/e2312887-771b-4af8-98dd-107b2a0931bd)
+
+## Training & Inferencing
+### Classification
+To train the classification model, execute:
+
+	python WCE_classification.py --root_dir path-to-directory-where-datasets-folder-is-present/WCEBleedGen -batch_size 32 --epochs 100 --save_dir path-to-directory-to-save-the-trained-model
+ 
+To infer from the trained classification model, execute:
+
+	python inference.py --model_path path-to-pretrained-pytorch-model-file --test_dir path-to-directory-of-test-images
+ 
+Note: 
+# (i) 
+We have placed our pretrained model named _ClassifyViStA_model.pt_ in 
+          
+# (ii)
+For predicting classes for Test Dataset 1, we first removed the superimposed white boundary on the images using connected component analysis, morphological post processing and inpainting. These preprocessed images are considered for classification. The tabulated classification results below on test dataset 1 is based on this preprocessing. The code to do this preprocessing is available in _utils_ folder as _rm_bndry.py_. Inside the code, correctly set the source and the target directories, in case you want to use it.
+
+## Detection
+For training, we used pretrained YOLOV8 medium (m) model (on COCO dataset) with confidence threshold set to 0.25 and IoU threshold set to 0.4. For details, you can refer to 
+
+https://github.com/ultralytics/ultralytics
+
+For inference, you can execute:
+
+	python detect_bleeding.py --source path-to-directory-of-test-images --device device-number-if-gpu
+ 
+Note: 
+# (i) 
+By default, the code will run on cpu. Si, if no gpu is available, no need to specify any device. The results (both, images with bounding boxes superimposed and the bounding boxes, are created in _./results/images_ and _./results/labels_, respectively).
+# (ii)
+Inside the _detect_bleeding.py_, opt.model is to the pretrained yolov8 medium model (available as _detect_best.pt_) on the WCE bleeding trainset. If you want to provide another yolov8 medium model, you have to change this line in the code.
+# (iii) 
+As already mentioned, we activated the soft nms, also called merged nms in the yolov8. By default, it is not activated. To activate, set _merge_ to _True_ in line 191 in _./ultralytics/yolo/utils/ops.py_.
+
 **A set of tables of the achieved evaluation metrics (for 80:20 train:valid split)**
 
-Train-valid split was obtained using *sklearn.model\_selection.train\_test\_split* with *random\_state* argument set to 42 for reproducibility.
+Train-valid split was obtained using 
+*sklearn.model\_selection.train\_test\_split* with *random\_state* argument set to 42 for reproducibility.
 
 **Table 1: Classification Performance on Validation Set**
 
