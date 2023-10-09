@@ -28,28 +28,10 @@ def test(pretrained_model_path, test_data_path):
     vgg_model.to(device)
     vgg_model.eval()
 
-    image_paths = [os.path.join(test_data_path, fname) for fname in os.listdir(test_data_path) if fname.endswith(('.jpg', '.jpeg', '.png', '.bmp'))]
+    image_paths = [os.path.join(test_data_path, fname) for fname in sorted(os.listdir(test_data_path)) if fname.endswith(('.jpg', '.jpeg', '.png', '.bmp'))]
     labels = [0] * len(image_paths) # dummy labels just to use the same dataset class; we will actually predict the labels
 
     test_dataset = CustomDatasetWithMask(image_paths, labels, train=False, inference=True) 
-
-    """root_dir = '../datasets/WCEBleedGen'
-    filenames = []
-    labels =  []  
-    for class_name in ['bleeding', 'non-bleeding']:
-        image_folder = 'images'
-        class_folder = os.path.join(root_dir, class_name, image_folder)
-        for filename in os.listdir(class_folder):
-            filenames.append(os.path.join(class_folder, filename))
-            labels.append(1 if class_name == 'bleeding' else 0)
-
-    # Split data into train and validation sets
-    train_filepaths, val_filepaths, train_labels, val_labels = train_test_split(
-            filenames, labels, test_size=0.2, random_state=42)
-
-    test_dataset = CustomDatasetWithMask(val_filepaths, val_labels, train=False)"""
-
-    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=1, shuffle=False)
 
     predictions = []
 
@@ -78,14 +60,26 @@ def test(pretrained_model_path, test_data_path):
         class_prob = combined_probs
         class_idx = int(combined_probs > 0.5)
         predictions.append((os.path.basename(img_name[0]), class_idx, class_prob))
-
+    
+    c1 = 0
+    c2 = 0
     # Write predictions to inferences.txt
-    with open('inferences.txt', 'w') as f:
+    with open('inferences.csv', 'w') as f:
         for img_name, class_idx, class_prob in predictions:
-            f.write(f'{img_name} - Class: {class_idx}, Confidence: {class_prob:.4f}\n')
+            if class_idx == 1:
+                label_name = 'bleeding'
+            elif class_idx == 0:
+                label_name = 'non-bleeding'
+            f.write(f'{img_name}, {label_name}\n')
+            if class_idx == 1:
+                c1 += 1
+            elif class_idx == 0:
+                c2 += 1
 
-    """# Compute metrics (assuming true_labels contains ground truth class indices for the test dataset)
-    true_labels = [1]*len(predictions)# Populate this with the ground truth class indices; currently all labels set to positive class
+            #f.write(f'{img_name} - Class: {class_idx}, Confidence: {class_prob:.4f}\n')
+
+    # Compute metrics (assuming true_labels contains ground truth class indices for the test dataset)
+    """true_labels = [1]*len(predictions)# Populate this with the ground truth class indices; currently all labels set to positive class
     predicted_labels = [class_idx for _, class_idx, _ in predictions]
 
     f1 = f1_score(true_labels, predicted_labels, average='weighted')
@@ -98,12 +92,14 @@ def test(pretrained_model_path, test_data_path):
     print(f'Precision: {precision:.4f}')
     print(f'Recall: {recall:.4f}')
     print(f'Acuracy: {accuracy:.4f}')"""
+    print(f"Sairam, len:{len(test_dataset)}, positives:{c1}, -ves: {c2}")
+
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Your script description here.')
 
-    parser.add_argument('--model_path', type=str, default='./checkpoints_custom/best.pt', help='Pytorch pretrained model path.')
+    parser.add_argument('--model_path', type=str, default='../checkpoints_custom/49_model.pth', help='Pytorch pretrained model path.')
     parser.add_argument('--test_dir', type=str, default='', help='Test data path')
 
     args = parser.parse_args()
