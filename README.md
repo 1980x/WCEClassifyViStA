@@ -65,6 +65,52 @@ comparison. For sake of consistency, we are choosing the same 10 images that was
 |9|bleeding/img- (968).png|![](Images/image18.png)|![](Images/image30.png)|
 |10|bleeding/img- (1120).png|![](Images/image20.png)|![](Images/image31.png)|
 
+**Table 5: Pictures of any 5 best images selected from the test dataset 1 showing its classification and detection**
+
+|S.No.|Image Name|Predicted bbox with confidence|Classification + Confidence|
+| :- | :- | :- | :- |
+|1|A0031|![](Images/image32.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9906</p>|
+|2|AOO36|![](Images/image33.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+|3|A0038|![](Images/image34.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+|4|A0042|![](Images/image35.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9997</p>|
+|5|A0046|![](Images/image36.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9483</p>|
+
+
+
+
+
+
+
+**Table 6: Pictures of any 5 best images selected from the test dataset 2 showing its classification and detection**
+
+|S.No.|Image Name|Predicted bbox with confidence|Classification + Confidence|
+| :- | :- | :- | :- |
+|1|A0401|<p></p><p>        </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.5949</p>|
+|2|A0405|<p></p><p>    </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9808</p>|
+|3|A0420|<p></p><p>    </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+|4|A0467|<p></p><p>    </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9933</p>|
+|5|A0497|<p></p><p>    </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9469</p>|
+
+**Table 7: Pictures of the achieved interpretability plot of any 5 best images selected from the test dataset 1**
+
+|S.No.|Image Name|Groundtruth image |<p>Predicted segmentation mask for explainability </p><p></p>|
+| :- | :- | :- | :- |
+|1|A0031|<p></p><p>  </p>|<p></p><p>   </p><p>  </p>|
+|2|A0036|<p></p><p>  </p><p></p>|<p>   </p><p>   </p>|
+|3|A0038|<p></p><p>  </p><p></p>|<p>  </p><p>   </p>|
+|4|A0042|<p></p><p>  </p><p></p>|<p></p><p>   </p>|
+|5|A0046|<p></p><p>  </p><p></p>|<p></p><p>   </p><p></p><p>  </p>|
+
+**Table 8: Pictures of the achieved interpretability plot of any 5 best images selected from the test dataset 2**
+
+|S.No.|Image Name|Groundtruth image |<p>Predicted segmentation mask for explainability </p><p></p>|
+| :- | :- | :- | :- |
+|1|A0401|<p></p><p>  </p>|<p></p><p>   </p><p>  </p>|
+|2|A0405|<p>  </p><p></p>|<p>   </p><p>   </p><p></p>|
+|3|A0420|<p>  </p><p></p>|<p>  </p><p>   </p><p></p>|
+|4|A0467|<p>  </p><p></p>|<p></p><p>   </p><p></p>|
+|5|A0497|<p>  </p><p></p>|<p></p><p>   </p><p></p><p>  </p>|
+
 
 
 
