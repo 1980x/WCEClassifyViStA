@@ -1,1 +1,9 @@
+#datasets_dir: /home/darshan/ncvpripg2023/depondfi/code/datasets
+datasets_dir: /home/darshan/ncvpripg2023/depondfi/
 
+weights_dir: weights
+runs_dir: runs
+uuid: b8bdbbdd61326fad10574bc34ef07fb9931ebdc99cd0e29e19634649accfe3cc
+sync: true
+api_key: ''
+settings_version: 0.0.3
