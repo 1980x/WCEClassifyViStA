@@ -85,31 +85,31 @@ comparison. For sake of consistency, we are choosing the same 10 images that was
 
 |S.No.|Image Name|Predicted bbox with confidence|Classification + Confidence|
 | :- | :- | :- | :- |
-|1|A0401|<p></p><p>        </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.5949</p>|
-|2|A0405|<p></p><p>    </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9808</p>|
-|3|A0420|<p></p><p>    </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
-|4|A0467|<p></p><p>    </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9933</p>|
-|5|A0497|<p></p><p>    </p><p></p>|<p>Predicted: Bleeding</p><p>Confidence: 0.9469</p>|
+|1|A0401|![](Images/image32.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.5949</p>|
+|2|A0405|![](Images/image32.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9808</p>|
+|3|A0420|![](Images/image32.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+|4|A0467|![](Images/image32.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9933</p>|
+|5|A0497|![](Images/image32.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9469</p>|
 
 **Table 7: Pictures of the achieved interpretability plot of any 5 best images selected from the test dataset 1**
 
 |S.No.|Image Name|Groundtruth image |<p>Predicted segmentation mask for explainability </p><p></p>|
 | :- | :- | :- | :- |
-|1|A0031|<p></p><p>  </p>|<p></p><p>   </p><p>  </p>|
-|2|A0036|<p></p><p>  </p><p></p>|<p>   </p><p>   </p>|
-|3|A0038|<p></p><p>  </p><p></p>|<p>  </p><p>   </p>|
-|4|A0042|<p></p><p>  </p><p></p>|<p></p><p>   </p>|
-|5|A0046|<p></p><p>  </p><p></p>|<p></p><p>   </p><p></p><p>  </p>|
+|1|A0031|![](Images/image32.png)|![](Images/image32.png)|
+|2|A0036|![](Images/image32.png)|![](Images/image32.png)|
+|3|A0038|![](Images/image32.png)|![](Images/image32.png)|
+|4|A0042|![](Images/image32.png)|![](Images/image32.png)|
+|5|A0046|![](Images/image32.png)|![](Images/image32.png)|
 
 **Table 8: Pictures of the achieved interpretability plot of any 5 best images selected from the test dataset 2**
 
 |S.No.|Image Name|Groundtruth image |<p>Predicted segmentation mask for explainability </p><p></p>|
 | :- | :- | :- | :- |
-|1|A0401|<p></p><p>  </p>|<p></p><p>   </p><p>  </p>|
-|2|A0405|<p>  </p><p></p>|<p>   </p><p>   </p><p></p>|
-|3|A0420|<p>  </p><p></p>|<p>  </p><p>   </p><p></p>|
-|4|A0467|<p>  </p><p></p>|<p></p><p>   </p><p></p>|
-|5|A0497|<p>  </p><p></p>|<p></p><p>   </p><p></p><p>  </p>|
+|1|A0401|![](Images/image32.png)|![](Images/image32.png)|
+|2|A0405|![](Images/image32.png)|![](Images/image32.png)|
+|3|A0420|![](Images/image32.png)|![](Images/image32.png)|
+|4|A0467|![](Images/image32.png)|![](Images/image32.png)|
+|5|A0497|![](Images/image32.png)|![](Images/image32.png)|
 
 
 
