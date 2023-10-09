@@ -3,7 +3,7 @@ WCE Classification with Visual Understanding through Segmentation and Attention
 
 Our WCE image classification network is named as “**WCE ClassifyViStA (WCE Classification with Visual understanding through Segmentation and Attention)**”. A block schematic of ClassifyViStAis shown below. It has a standard classification path and two other branches viz. implicit attention branch and the segmentation branch. 
 
-![](Images/framework.png){width="6.260416666666667in"height="3.4791666666666665in"}
+![](Images/framework.png)
 
 In the implicit attention branch, the feature maps from the encoder are weighted by the given groundtruth segmentation masks and then sent to the classification head. This ensures that, for bleeding class, the network focuses on the region of bleeding rather than the whole image. 
 
