@@ -23,7 +23,7 @@ For WCE bleeding region detection, we have used YOLOV8. However, instead of usin
 
 Train-valid split was obtained using *sklearn.model\_selection.train\_test\_split* with *random\_state* argument set to 42 for reproducibility.
 
-Table 1: Classification Performance on Validation Set
+**Table 1: Classification Performance on Validation Set
 
 |**S.No.**|**Metric**|**Value**|
 | :- | :- | :- |
@@ -32,7 +32,7 @@ Table 1: Classification Performance on Validation Set
 |3|Recall|0\.9962|
 |4|F1-Score|0\.9962|
 
-Table 2: Detection Performance on Validation Set
+**Table 2: Detection Performance on Validation Set
 
 |**S.No.**|**Metric**|**Value**|
 | :- | :- | :- |
@@ -58,8 +58,7 @@ While there are many images from the validation set with high confidence and hig
 |9|bleeding/img- (968).png|![](Images/image18.png)|![](Images/image19.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9994</p>|
 |10|bleeding/img- (1120).png|![](Images/image20.png)|![](Images/image21.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
 
-**Table 4: Pictures of the achieved interpretability plot of any 10 best
-images selected from the validation dataset**
+**Table 4: Pictures of the achieved interpretability plot of any 10 best images selected from the validation dataset**
 
 Our team intends to explain the classification using the predicted segmentation mask. In fact, a doctor would classify a WCE image as bleeding by looking for bleeding spots in the image. So, enabling the machine to attempt to mimic what doctor does is, we believe, the more natural way of explaining the reason for classification. Towards this end, we had added a parallel branch to the classifier network which decodes the features from the classifier backbone (in the style of U-net decoder) and predicts a segmentation mask. Below, we show the predicted segmentation masks where the brighter corresponds to area where possible
 bleeding is present in the original WCE image. The corresponding groundtruth image with the inlaid bounding box is shown for easy
