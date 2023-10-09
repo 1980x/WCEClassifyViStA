@@ -45,6 +45,19 @@ Table 2: Detection Performance on Validation Set
 
 While there are many images from the validation set with high confidence and high IoU detection, we have chosen 10 images varying in illumination, region (inside the body), texture etc. and that which covers bounding boxes with small, large and medium areas that overlap significantly with the corresponding groundtruth. The groundtruth detection is also shown in the table below for easy comparison.
 
+|S.No.|Image Name|Groundtruth image with ground truth bbox|Predicted bbox with confidence|Classification + Confidence|
+| :- | :- | :- | :- | :- |
+|1|bleeding/img- (276).png|![](Images/image2.png)|![](Images/image3.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+|2|bleeding/img- (320).png|![](Images/image4.png)|![](Images/image5.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+|3|bleeding/img- (473).png|![](Images/image6.png)|![](Images/image7.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+|4|bleeding/img- (581).png|![](Images/image8.png)|![](Images/image9.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9998</p>|
+|5|bleeding/img- (654).png|![](Images/image10.png)|![](Images/image11.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9998</p>|
+|6|bleeding/img- (697).png|![](Images/image12.png)|![](Images/image13.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9994</p>|
+|7|bleeding/img- (775).png|![](Images/image14.png)|![](Images/image15.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9982</p>|
+|8|bleeding/img- (894).png|![](Images/image16.png)|![](Images/image17.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9997</p>|
+|9|bleeding/img- (968).png|![](Images/image18.png)|![](Images/image19.png)|<p>Predicted: Bleeding</p><p>Confidence: 0.9994</p>|
+|10|bleeding/img- (1120).png|![](Images/image20.png)|![](Images/image21.png)|<p>Predicted: Bleeding</p><p>Confidence: 1.0</p>|
+
 **Table 4: Pictures of the achieved interpretability plot of any 10 best
 images selected from the validation dataset**
 
